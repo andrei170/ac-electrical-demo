@@ -1,54 +1,141 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AC Electrical (North Wales) — Concept Demo</title>
+<title>AC Electrical Contracting &middot; Commercial, Industrial &amp; Solar Concept</title>
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#14181c; --mut:#57616c; --line:#e2e6ec; --bg:#f8fafb; --panel:#fff;
-  --deep:#12283f; --deep2:#1d3b58; --acc:#2f6fbf; --acc2:#7fb4e3; --ok:#1f7a45;
+  --ink:#10151b; --mut:#5b6672; --soft:#7a8693; --line:#e4e8ee; --bg:#f7f9fb; --panel:#fff;
+  --deep:#0f2740; --deep2:#1b3e5f; --acc:#2f6fbf; --acc2:#8cc0ef; --ok:#1f7a45; --warn:#9a6a10;
+  --r:14px; --shadow:0 1px 2px rgba(16,21,27,.04), 0 8px 24px rgba(16,21,27,.06);
+  --shadow-lg:0 24px 60px rgba(10,20,32,.16);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:Bitter,Georgia,serif;font-weight:700;line-height:1.16;letter-spacing:-.014em;text-wrap:balance}
-.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
-.demobar{background:#0d1117;color:#e6edf3;font-size:12.5px;text-align:center;padding:8px 14px}
+html{scroll-behavior:smooth}
+body{font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3{font-family:Bitter,Georgia,serif;font-weight:700;line-height:1.15;letter-spacing:-.016em;text-wrap:balance}
+a{color:var(--acc)}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+@media(max-width:560px){.wrap{padding:0 16px}}
+
+/* ---------- banners ---------- */
+.demobar{background:#0d1117;color:#dbe4ee;font-size:12.5px;text-align:center;padding:9px 16px;letter-spacing:.01em}
 .demobar b{color:#f0b13c}
 .urg{background:#8a1c1c;color:#fff;text-align:center;font-size:13.5px;padding:9px;font-weight:500}
 .urg a{color:#fff}
-nav{position:sticky;top:0;z-index:60;background:rgba(248,250,251,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.navin{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
-.logo{font-family:Bitter,serif;font-weight:700;font-size:19px}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:60;background:rgba(247,249,251,.88);backdrop-filter:saturate(1.6) blur(12px);border-bottom:1px solid var(--line)}
+.navin{max-width:1140px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:Bitter,serif;font-weight:700;font-size:19px;letter-spacing:-.02em;white-space:nowrap}
 .logo span{color:var(--acc)}
-.navl{display:flex;gap:20px;font-size:14.5px;font-weight:500}
-.navl a{color:var(--mut);text-decoration:none}.navl a:hover{color:var(--deep2)}
+.navl{display:flex;gap:22px;font-size:14.5px;font-weight:500}
+.navl a{color:var(--mut);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.navl a:hover{color:var(--deep2);border-bottom-color:var(--acc2)}
 .navl a.on{color:var(--deep2);font-weight:700}
-.call{display:inline-flex;align-items:center;gap:8px;background:var(--deep2);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;padding:10px 17px;border-radius:8px;white-space:nowrap}
+.call{display:inline-flex;align-items:center;gap:8px;background:var(--deep2);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;padding:10px 18px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 18px rgba(27,62,95,.22);transition:transform .15s,box-shadow .15s}
+.call:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(27,62,95,.3)}
 @media(max-width:900px){.navl{display:none}}
-.hero{position:relative;background:linear-gradient(155deg,var(--deep),var(--deep2));color:#eef3f8;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:0;opacity:.13;
-  background:repeating-linear-gradient(78deg,transparent 0 38px,rgba(255,255,255,.55) 38px 40px),
-             repeating-linear-gradient(-12deg,transparent 0 38px,rgba(255,255,255,.3) 38px 39px)}
-.heroin{position:relative;z-index:2;display:grid;grid-template-columns:1.06fr .94fr;gap:42px;align-items:center;padding:56px 0 62px}
-@media(max-width:980px){.heroin{grid-template-columns:1fr;gap:28px;padding:38px 0 44px}}
-.eyeb{display:inline-block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--acc2);border:1px solid rgba(255,255,255,.28);padding:5px 12px;border-radius:999px;margin-bottom:17px}
-.hero h1{font-size:clamp(31px,5vw,48px);margin-bottom:14px}
+@media(max-width:430px){.call{padding:9px 13px;font-size:13.5px}}
+
+/* ---------- hero (single column: no demo has a hero form) ---------- */
+.hero{position:relative;background:
+   radial-gradient(1100px 520px at 78% -10%, rgba(140,192,239,.22), transparent 60%),
+   linear-gradient(158deg,var(--deep) 0%, var(--deep2) 100%);
+  color:#eaf1f8;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.09;
+  background:repeating-linear-gradient(78deg,transparent 0 40px,rgba(255,255,255,.5) 40px 41px),
+             repeating-linear-gradient(-12deg,transparent 0 40px,rgba(255,255,255,.28) 40px 41px)}
+.heroin{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:64px 22px 70px}
+@media(max-width:820px){.heroin{padding:44px 18px 50px}}
+.eyeb{display:inline-block;font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--acc2);border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.05);padding:6px 13px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:clamp(30px,4.9vw,50px);margin-bottom:16px;max-width:24ch;text-wrap:balance}
+@media(max-width:820px){.hero h1{max-width:none}}
 .hero h1 em{font-style:normal;color:var(--acc2)}
-.hero .lede{font-size:17px;color:#c6d3df;max-width:520px}
-.ticks{list-style:none;margin-top:20px;display:grid;gap:9px}
-.ticks li{display:flex;gap:10px;font-size:15.5px;color:#dde6ee}
+.hero .lede,.hero .sh{font-size:clamp(16px,1.9vw,18.5px);color:#cbdaea;max-width:62ch;text-align:left;margin:0}
+.hero .sh b{color:#fff}
+.hero p+p{margin-top:12px}
+
+.badges{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 4px}
+.bdg{font-size:13px;font-weight:600;color:#dbe8f5;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:7px 13px;border-radius:999px;backdrop-filter:blur(4px)}
+
+.hero .btn{display:inline-flex;align-items:center;justify-content:center;width:auto;margin-top:26px;padding:15px 30px;border-radius:999px;box-shadow:0 12px 30px rgba(47,111,191,.4)}
+.hint{font-size:13px;color:#a9bdd2;margin-top:12px;text-align:left}
+
+/* ---------- trust bar ---------- */
+.trust{background:#0b1218;color:#b6c2cd;padding:18px 0;border-top:1px solid rgba(255,255,255,.06)}
+.trustin{max-width:1140px;margin:0 auto;padding:0 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px 30px;font-size:13.5px}
+@media(max-width:820px){.trustin{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.trustin{grid-template-columns:1fr}}
+.fact{display:flex;flex-direction:column;gap:3px;padding-left:13px;border-left:2px solid rgba(140,192,239,.45)}
+.fact b{color:#8cc0ef;font-weight:700;font-family:Bitter,serif;font-size:15px}
+.fact span{color:#93a3b3;font-size:13px;line-height:1.5}
+.trustin>b{color:var(--acc2)}
+
+/* ---------- sections ---------- */
+section{padding:64px 0}
+@media(max-width:700px){section{padding:46px 0}}
+.band{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+section h2{font-size:clamp(25px,3.4vw,35px);margin-bottom:13px;letter-spacing:-.02em}
+section h3{font-size:19px;margin-bottom:7px}
+.sh{font-size:16.5px;color:var(--mut);max-width:74ch;margin:0 0 30px}
+.sh b{color:var(--ink)}
+.sh .kick{display:block;font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:10px}
+section p+.sh{margin-top:14px}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .16s,box-shadow .16s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(16,21,27,.11)}
+.band .card{background:var(--bg)}
+.ctop{font-family:Bitter,serif;font-weight:700;font-size:17.5px;padding:16px 20px;background:linear-gradient(180deg,#f3f7fb,#eaf1f8);border-bottom:1px solid var(--line);color:var(--deep)}
+.cbody{padding:17px 20px 20px;font-size:15px;color:var(--mut);flex:1}
+.cbody p{margin-bottom:10px}
+.cbody i{color:var(--soft)}
+
+/* ticks: used INSIDE light cards - must be dark, and on the dark hero - must be light */
+.ticks{list-style:none;display:grid;gap:9px;margin-top:13px}
+.ticks li{display:flex;gap:10px;font-size:14.5px;color:var(--ink);line-height:1.5}
+.ticks li::before{content:"";flex:0 0 16px;height:16px;margin-top:4px;border-radius:50%;
+  background:var(--ok) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23fff' d='M6.4 11.6 3.2 8.4l1.1-1.1 2.1 2.1 5-5 1.1 1.1z'/%3E%3C/svg%3E") center/13px no-repeat}
+.hero .ticks li{color:#dde6ee}
 .ticks svg{flex:0 0 18px;margin-top:4px;fill:var(--acc2)}
-.form{background:var(--panel);border-radius:14px;padding:24px;box-shadow:0 20px 54px rgba(0,0,0,.3);color:var(--ink)}
+
+/* ---------- two-up boxes ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:780px){.two{grid-template-columns:1fr}}
+.box{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:var(--r);padding:22px 24px;box-shadow:var(--shadow)}
+.band .box{background:var(--bg)}
+.box h3{color:var(--deep);font-size:18px;margin-bottom:8px}
+.box p{font-size:15px;color:var(--mut)}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px;counter-reset:s}
+.step{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px 20px 20px;box-shadow:var(--shadow)}
+.band .step{background:var(--bg)}
+.step::before{counter-increment:s;content:counter(s);position:absolute;top:-13px;left:20px;width:30px;height:30px;border-radius:50%;background:var(--acc);color:#fff;font-family:Bitter,serif;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 14px rgba(47,111,191,.35)}
+.step b{display:block;font-family:Bitter,serif;font-size:16px;margin:8px 0 6px;color:var(--deep)}
+.step span{font-size:14.2px;color:var(--mut);line-height:1.55}
+
+/* ---------- area chips ---------- */
+.areas{display:flex;flex-wrap:wrap;gap:9px}
+.areas span{font-size:14px;font-weight:500;background:var(--panel);border:1px solid var(--line);color:var(--deep2);padding:8px 15px;border-radius:999px;box-shadow:0 1px 2px rgba(16,21,27,.04)}
+.band .areas span{background:var(--bg)}
+
+/* ---------- form ---------- */
+.form{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow-lg);color:var(--ink);max-width:620px;margin:0 auto}
+.band .form{background:var(--bg)}
 .form h3{font-size:20px;margin-bottom:4px}
 .form .fs{font-size:13.5px;color:var(--mut);margin-bottom:14px}
-label{display:block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin:12px 0 5px}
-select,input{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:#fbfcfd;border:1px solid var(--line);border-radius:8px;padding:11px 12px}
-select:focus,input:focus{outline:2px solid var(--acc);outline-offset:1px;border-color:transparent}
+label{display:block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin:14px 0 5px}
+select,input{width:100%;font-family:inherit;font-size:15.5px;color:var(--ink);background:#fbfcfd;border:1px solid var(--line);border-radius:10px;padding:12px 13px;transition:border-color .15s,box-shadow .15s}
+select:focus,input:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(47,111,191,.16)}
 .chk{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .chk label{display:inline-flex;align-items:center;gap:7px;margin:0;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fbfcfd;font-size:13.5px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink);cursor:pointer}
 .chk input{width:auto;padding:0;margin:0}
-.btn{width:100%;margin-top:18px;background:var(--acc);color:#fff;border:0;border-radius:9px;padding:14px;font-family:Bitter,serif;font-size:16px;font-weight:700;cursor:pointer}
-.btn:hover{filter:brightness(.88)}
-.hint{font-size:12px;color:var(--mut);margin-top:10px;text-align:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;width:100%;margin-top:20px;background:var(--acc);color:#fff;border:0;border-radius:10px;padding:14px 22px;font-family:Bitter,serif;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;transition:filter .15s,transform .15s}
+.btn:hover{filter:brightness(.92);transform:translateY(-1px)}
+.fnote{font-size:12px;color:var(--soft);margin-top:11px;text-align:center;font-style:italic}
 .out{display:none;margin-top:15px;border-radius:10px;padding:15px 16px;font-size:14.5px;border:1px solid}
 .out.show{display:block}
 .out b{display:block;font-family:Bitter,serif;font-size:16.5px;margin-bottom:5px}
@@ -56,308 +143,232 @@ select:focus,input:focus{outline:2px solid var(--acc);outline-offset:1px;border-
 .o-md{background:#fdf6ea;border-color:#ecdcb2;color:#775413}
 .o-lo{background:#f3f5f7;border-color:#dde2e7;color:#48515a}
 .o-urg{background:#fdeeee;border-color:#f0c6c4;color:#8a1c1c}
-.trust{background:#0e141a;color:#b6c2cd;padding:15px 0}
-.trustin{display:flex;flex-wrap:wrap;justify-content:center;gap:11px 34px;font-size:13.5px}
-.trustin b{color:var(--acc2);font-weight:700}
-section{padding:58px 0}
-.sh{text-align:center;max-width:680px;margin:0 auto 34px}
-.sh .kick{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:10px}
-.sh h2{font-size:clamp(25px,3.4vw,33px);margin-bottom:11px}
-.sh p{color:var(--mut);font-size:16.5px}
-.band{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:17px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden}
-.ctop{height:100px;position:relative;background:linear-gradient(140deg,var(--deep),var(--deep2))}
-.ctop::after{content:"";position:absolute;inset:0;opacity:.24;background:repeating-linear-gradient(78deg,transparent 0 15px,rgba(255,255,255,.5) 15px 16px)}
-.cbody{padding:17px}.cbody h3{font-size:18px;margin-bottom:6px}
-.cbody p{font-size:14.5px;color:var(--mut)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:820px){.two{grid-template-columns:1fr}}
-.box{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:24px}
-.box.pri{background:linear-gradient(160deg,var(--deep),var(--deep2));color:#eef3f8;border-color:var(--deep2)}
-.box h3{font-size:20px;margin-bottom:10px}
-.box ul{margin:0 0 0 19px;font-size:15px;color:var(--mut)}
-.box.pri ul{color:#c6d3df}
-.box li{margin-bottom:8px}
-.tagp{display:inline-block;font-size:11px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;background:var(--acc2);color:#0e1a26;padding:4px 10px;border-radius:999px;margin-bottom:12px}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:16px}
-.fact{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
-.fact .k{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mut);font-weight:700;margin-bottom:7px}
-.fact .v{font-family:Bitter,serif;font-size:22px;font-weight:700;color:var(--deep2)}
-.fact .n{font-size:13.5px;color:var(--mut);margin-top:5px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:22px;counter-reset:s}
-.step{counter-increment:s;position:relative;padding-left:50px}
-.step::before{content:counter(s);position:absolute;left:0;top:0;width:37px;height:37px;border-radius:50%;background:var(--deep2);color:#fff;font-family:Bitter,serif;font-weight:700;font-size:17px;display:grid;place-items:center}
-.step h3{font-size:17.5px;margin-bottom:5px}.step p{font-size:14.5px;color:var(--mut)}
-.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:17px}
-.rev{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:20px}
-.stars{color:#e0a32e;font-size:15.5px;letter-spacing:2px}
-.rev p{font-size:14.8px;color:var(--mut);margin:9px 0 12px;font-style:italic}
-.rev .who{font-size:13.5px;font-weight:700}
-.rev .who span{display:block;font-weight:400;color:var(--mut);font-size:12.5px;margin-top:2px}
-.ratebar{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:28px;flex-wrap:wrap}
-.ratebig{font-family:Bitter,serif;font-size:42px;font-weight:700;color:var(--deep2)}
-.ratetxt{font-size:14.5px;color:var(--mut);text-align:left}
-.badges{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.bdg{background:var(--panel);border:1px dashed #b9c3d1;border-radius:11px;padding:14px 20px;text-align:center;min-width:140px}
-.bdg b{display:block;font-family:Bitter,serif;font-size:16px;color:var(--deep2)}
-.bdg span{font-size:11.5px;color:var(--mut);letter-spacing:.05em;text-transform:uppercase}
-.areas{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:20px}
-.areas span{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:14px;color:var(--mut)}
-.cta2{background:linear-gradient(155deg,var(--deep),var(--deep2));color:#eef3f8;text-align:center;padding:58px 0}
-.cta2 h2{font-size:clamp(25px,3.4vw,33px);margin-bottom:11px}
-.cta2 p{color:#c6d3df;font-size:16.5px;max-width:560px;margin:0 auto 22px}
-.cta2 .call{font-size:16px;padding:14px 26px;background:var(--acc2);color:#0e1a26}
-footer{background:#0b1016;color:#87929d;font-size:13.5px;padding:32px 0}
-.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
-footer h4{color:#e7edf3;font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;margin-bottom:10px}
-footer a{color:#87929d;text-decoration:none;display:block;margin-bottom:6px}
-footer a:hover{color:var(--acc2)}
-.fnote{border-top:1px solid #1b232c;padding-top:18px;margin-top:20px;font-size:12.5px;color:#6b7681;line-height:1.65}
-a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+/* ---------- reviews / misc legacy ---------- */
+.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.rev{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow);font-size:14.8px;color:var(--mut)}
+.stars{color:#e0a92b;letter-spacing:2px;margin-bottom:8px}
+.facts,.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.tagp{font-size:12.5px;color:var(--soft);font-style:italic;margin-top:10px}
+.ratebar{display:flex;align-items:baseline;gap:10px;margin:10px 0}
+.ratebig{font-family:Bitter,serif;font-size:30px;font-weight:700;color:var(--deep)}
+.ratetxt{font-size:14px;color:var(--mut)}
+.cta2{background:linear-gradient(158deg,var(--deep),var(--deep2));color:#eaf1f8;padding:56px 0;text-align:center}
+.cta2 h2{color:#fff;margin-bottom:10px}
+
+/* ---------- footer ---------- */
+footer{background:#0b1218;color:#8e9daf;font-size:12.6px;line-height:1.72;padding:34px 0 46px;border-top:1px solid rgba(255,255,255,.07)}
+footer b{color:#c3d1de;font-weight:600}
+
+/* ---------- quote block promoted to the top of the page ---------- */
+.quote{background:linear-gradient(180deg,#eef3f8,var(--bg));border-bottom:1px solid var(--line);padding:46px 0 52px}
+.quote .wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
+.quote h2{margin-bottom:8px}
+.quote .sh{margin:0 auto 24px;text-align:center}
+.quote .form{width:100%;text-align:left}
+.quote .form label{text-align:left}
+@media(max-width:700px){.quote{padding:34px 0 38px}}
 </style>
-<style>
-:root{--deep:#0e1c26;--deep2:#1a3a4a;--acc:#0f8ea8;--acc2:#7fd2e4}
-h1,h2,.box h3,.step h3{font-family:Bitter,Georgia,"Times New Roman",serif}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media(max-width:760px){.steps{grid-template-columns:1fr}}
-.step{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:14px;padding:22px}
-.step .n{width:34px;height:34px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
-.step h3{margin:0 0 7px;font-size:17px}
-.step p{margin:0;font-size:14.5px;color:var(--mut)}
-.notebox{max-width:900px;margin:0 auto 34px;background:#fdf7e7;border:1px solid #e0c479;border-radius:14px;padding:20px 24px}
-.notebox .nl{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:#8a6a1c;font-weight:800;margin-bottom:8px}
-.notebox p{font-size:14.5px;color:#4a4231;margin:0 0 9px}.notebox p:last-child{margin:0}
-.notebox b{color:#241c0c}
-.big{background:linear-gradient(160deg,var(--deep),var(--deep2));color:#fff;border-radius:18px;padding:34px;text-align:center}
-.big h2{color:#fff;font-size:30px;margin-bottom:10px}
-.big p{color:#bcd8e2;font-size:16.5px;max-width:660px;margin:0 auto}
-.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:18px}
-@media(max-width:900px){.svc{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.svc{grid-template-columns:1fr}}
-.sv{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 16px}
-.sv b{display:block;font-size:15px;color:var(--ink);margin-bottom:4px}
-.sv span{font-size:13px;color:var(--mut)}
-.sv.hot{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc2)}
-.stick{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;background:var(--acc);text-align:center;padding:13px;font-weight:800;color:#fff;text-decoration:none}
-@media(max-width:760px){.stick{display:block}footer{padding-bottom:78px}}
-</style>
+<div class="demobar">Concept site prepared by AG1 Consulting for Matthew Cawte &middot; not a live website</div>
 
-<div class="demobar">CONCEPT DEMONSTRATION &mdash; built by <b>AG1 Consulting</b> for AC Electrical (North Wales) Ltd &middot; not a live site &middot; ratings are <b>placeholders</b></div>
-<div class="urg">Commercial enquiry, EV charging or a fire alarm contract? <b>01492 549740</b></div>
-
-<nav><div class="wrap navin">
-  <div class="logo">AC <span>Electrical</span></div>
-  <div class="navl"><a href="#commercial">Commercial</a><a href="#services">12 Services</a><a href="#ev">EV Charging</a><a href="#proof">Our Work</a></div>
-  <a class="call" href="tel:01492549740">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
-    01492 549740</a>
-</div></nav>
-
-<div class="hero"><div class="wrap heroin">
-  <div>
-    <div class="eyeb">Llandudno Junction &middot; residential, commercial &amp; industrial</div>
-    <h1>Twelve services. <em>Not one page.</em></h1>
-    <p class="lede">Electrical installation and maintenance, lighting design, smart homes, EV charging,
-    fire alarms, access control, security, CCTV, HVAC, thermal image surveying, inspection and testing
-    &mdash; across North Wales, from a single house to a large commercial project.</p>
-    <ul class="ticks">
-      <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Residential, commercial and industrial</li>
-      <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> EV charging, smart homes and renewables</li>
-      <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Fire alarms, CCTV and access control</li>
-    </ul>
+<div class="navin">
+  <div class="logo">AC Electrical</div>
+  <div class="navl">
+    <a href="#commercial">Commercial &amp; Industrial</a>
+    <a href="#solar">Solar</a>
+    <a href="#about">Who We Are</a>
+    <a href="#areas">Where We Work</a>
   </div>
-  <div class="form">
-    <h3>Enquire</h3>
-    <div class="fs">Four questions &mdash; so a contract does not arrive looking like a socket.</div>
-    <form onsubmit="return q(event)">
-      <label for="who">What sort of property?</label>
-      <select id="who" required>
-        <option value="">Choose one&hellip;</option>
-        <option value="5">Commercial or industrial premises</option>
-        <option value="5">Several sites or a managed portfolio</option>
-        <option value="4">Landlord or letting agent</option>
-        <option value="2">My own home</option>
-      </select>
-      <label for="svc">Which service?</label>
-      <select id="svc" required>
-        <option value="">Choose one&hellip;</option>
-        <option value="5">Fire alarm system</option>
-        <option value="5">Access control or CCTV</option>
-        <option value="4">EV charging</option>
-        <option value="4">Inspection &amp; testing / EICR</option>
-        <option value="4">Thermal image survey</option>
-        <option value="3">Full installation or rewire</option>
-        <option value="3">Lighting design</option>
-        <option value="2">Smart home</option>
-        <option value="2">Something smaller</option>
-      </select>
-      <label for="scale">Roughly what scale?</label>
-      <select id="scale" required>
-        <option value="">Choose one&hellip;</option>
-        <option value="1">A single small job</option>
-        <option value="3">One full property</option>
-        <option value="5">A building or multiple properties</option>
-        <option value="5">Ongoing maintenance contract</option>
-      </select>
-      <label for="pc">Postcode</label>
-      <input id="pc" type="text" placeholder="e.g. LL31" required>
-      <button class="btn" type="submit">See what happens next</button>
-      <div class="hint">Demonstration only &mdash; nothing is sent anywhere</div>
-      <div class="out" id="out"></div>
-    </form>
-  </div>
-</div></div>
+  <a class="call" href="tel:07515667662">07515 667662</a>
+</div>
 
-<div class="trust"><div class="wrap trustin">
-  <div><b>&mdash;</b> accreditations <span style="font-size:12px">(placeholder)</span></div>
-  <div><b>Since 2016</b></div>
-  <div><b>12</b> services</div>
-  <div><b>North Wales</b> wide</div>
-</div></div>
-
-<section><div class="wrap">
-  <div class="notebox">
-    <div class="nl">Read this first &mdash; what changed and why</div>
-    <p><b>Nothing about your business has been redesigned.</b> The twelve services, the coverage and the
-    wording are yours, from your live site.</p>
-    <p><b>Three things are different.</b> <b>1. Your services are treated as twelve buyers, not one
-    list</b> &mdash; because a facilities manager searching &ldquo;fire alarm servicing&rdquo; and a
-    homeowner wanting a rewire are not the same person. <b>2. Commercial leads</b>, because that is
-    where fire alarms, access control, CCTV and thermal imaging all live. <b>3. The form asks the scale
-    of the job</b>, so a maintenance contract stops arriving looking like a single socket.</p>
-    <p><b>Every accreditation and rating slot on this page is blank.</b> We do not know which schemes
-    you hold, so we have not printed any.</p>
-  </div>
-</div></section>
-
-<div class="band"><section id="commercial"><div class="wrap">
-  <div class="big">
-    <h2>You already do the work commercial clients pay most for. You just do not ask for it.</h2>
-    <p>Fire alarms, access control, CCTV, thermal imaging and inspection &amp; testing are all
-    contracted, recurring, budgeted work. <b>On your site they are five bullets in a list of twelve.</b></p>
-  </div>
-  <div class="two" style="margin-top:26px">
-    <div class="box pri">
-      <div class="tagp">Commercial &amp; industrial</div>
-      <h3>For facilities managers and main contractors</h3>
-      <ul>
-        <li>Fire alarm installation, servicing and certification</li>
-        <li>Access control, CCTV and security systems</li>
-        <li>Periodic inspection and testing, with certificates</li>
-        <li>Thermal image surveying for planned maintenance</li>
-        <li>Work scheduled around your operating hours</li>
-        <li>Several sites handled on one account</li>
-      </ul>
-    </div>
-    <div class="box">
-      <h3>Why this is the work to chase</h3>
-      <ul>
-        <li>It recurs &mdash; servicing and testing are on a cycle, not a whim</li>
-        <li>It is budgeted rather than impulsive</li>
-        <li>Far less price-haggling than residential</li>
-        <li>It fills the quiet months for a team of your size</li>
-        <li>One building manager often has several buildings</li>
-      </ul>
+<div class="hero">
+  <div class="heroin">
+    <div class="eyeb">Commercial &middot; Industrial &middot; Solar &middot; Northamptonshire</div>
+    <h1>Your complete electrical partner &mdash; and now your solar one too.</h1>
+    <p class="sh">Commercial and industrial electrical installation, maintenance and testing across Northamptonshire,
+    with a directly employed team rather than a rotating list of subcontractors. Solar PV design and installation
+    from the same people.</p>
+    <div class="badges">
+      <span class="bdg">Commercial &amp; industrial</span>
+      <span class="bdg">Solar PV</span>
+      <span class="bdg">Directly employed team</span>
+      <span class="bdg">Northamptonshire based</span>
     </div>
   </div>
-</div></section></div>
+</div>
 
-<section id="services"><div class="wrap">
-  <div class="sh"><div class="kick">All Twelve</div><h2>Each of these deserves its own page.</h2>
-    <p>Taken straight from your live site, where they are a single bullet list. <b>The four highlighted
-    are the ones we would build first</b> &mdash; searched by name, higher value, and few local
-    competitors offer them.</p></div>
-  <div class="svc">
-    <div class="sv hot"><b>EV Charging</b><span>Growing fast, searched by name, and most local electricians have not moved into it.</span></div>
-    <div class="sv hot"><b>Fire Alarm Systems</b><span>Installation, servicing and certification &mdash; contracted and recurring.</span></div>
-    <div class="sv hot"><b>Thermal Image Surveying</b><span>A genuine specialism. Almost nobody in North Wales advertises it.</span></div>
-    <div class="sv hot"><b>Inspection &amp; Testing</b><span>EICRs for landlords and businesses. Legally driven, so it repeats.</span></div>
-    <div class="sv"><b>Access Control</b><span>Door entry and controlled access for commercial premises.</span></div>
-    <div class="sv"><b>CCTV</b><span>Specified, installed and maintained properly.</span></div>
-    <div class="sv"><b>Security Systems</b><span>Intruder alarms for homes and businesses.</span></div>
-    <div class="sv"><b>Electrical Installation</b><span>New builds, rewires and extensions.</span></div>
-    <div class="sv"><b>Electrical Maintenance</b><span>Planned and reactive, for buildings that cannot stop.</span></div>
-    <div class="sv"><b>Lighting Design</b><span>Designed rather than just fitted &mdash; commercial and domestic.</span></div>
-    <div class="sv"><b>Smart Home</b><span>Integrated control, done by an electrician rather than a gadget shop.</span></div>
-    <div class="sv"><b>HVAC</b><span>Heating and ventilation alongside the electrical work.</span></div>
+<section class="quote">
+  <div class="wrap">
+    <p class="sh">Tell us about the site and we will come and price it properly.</p>
+    <div class="form">
+      <input type="text" placeholder="Your name">
+      <input type="tel" placeholder="Phone number">
+      <input type="text" placeholder="Company or site name">
+      <select>
+        <option>What do you need?</option>
+        <option>Commercial electrical installation</option>
+        <option>Industrial / factory electrical</option>
+        <option>Solar PV for our building</option>
+        <option>Testing, inspection or remedial work</option>
+        <option>Maintenance contract</option>
+        <option>EV charging</option>
+        <option>Something has failed and we need someone today</option>
+      </select>
+      <select>
+        <option>Rough size of the job?</option>
+        <option>Under &pound;5,000</option>
+        <option>&pound;5,000 to &pound;20,000</option>
+        <option>Over &pound;20,000</option>
+        <option>Ongoing maintenance, not a one-off</option>
+      </select>
+      <button class="btn">Request a site visit</button>
+    </div>
+    <div class="fnote">Or call <b>07515 667662</b> and speak to Matthew. If it is urgent and something has failed,
+    phone rather than fill this in.</div>
   </div>
-</div></section>
+</section>
 
-<div class="band"><section id="ev"><div class="wrap">
-  <div class="sh mid"><div class="kick">Worth Its Own Page</div><h2>&ldquo;EV charger installation near me&rdquo;</h2>
-    <p><b>That is what people type.</b> Not &ldquo;electrical contractor&rdquo;. A bullet in a list
-    cannot answer it; a page can &mdash; and the same is true of fire alarm servicing, EICRs and thermal
-    surveys.</p></div>
-  <div class="steps">
-    <div class="step"><div class="n">1</div><h3>They search the job</h3><p>By name, with intent, usually on a phone, and usually ready to book.</p></div>
-    <div class="step"><div class="n">2</div><h3>They land on that page</h3><p>Not a homepage listing twelve things. The page about the one thing they asked for.</p></div>
-    <div class="step"><div class="n">3</div><h3>They enquire, and it counts</h3><p>And you can see which service produced it &mdash; which is impossible today.</p></div>
+<div class="trust">
+  <div class="trustin">
+    <div class="fact"><b>Employed</b>our own team, not agency labour</div>
+    <div class="fact"><b>Commercial</b>installation, maintenance, testing</div>
+    <div class="fact"><b>Solar</b>design and install in-house</div>
+    <div class="fact"><b>Local</b>Northamptonshire, not a national chain</div>
   </div>
-</div></section></div>
+</div>
 
-<section id="proof"><div class="wrap">
-  <div class="sh mid"><div class="kick">Proof</div><h2>Where your case studies and accreditations belong.</h2>
-    <p><b>You have a case studies section and none of it appears on your homepage.</b> For a facilities
-    manager putting their own name on the decision, a named project is worth more than any claim you can
-    make about yourself.</p></div>
-  <div class="ratebar"><div class="ratebig">&mdash;</div>
-    <div class="ratetxt"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-    <b>placeholder</b> &mdash; your Google rating and review count would sit here</div></div>
-  <div class="cards" style="margin-top:22px">
-    <div class="card"><div class="ctop"></div><div class="cbody"><h3>Commercial project</h3><p><b>Placeholder.</b> A named building, what was installed, and over what programme.</p></div></div>
-    <div class="card"><div class="ctop"></div><div class="cbody"><h3>Industrial project</h3><p><b>Placeholder.</b> The kind of job that proves you can hold a schedule on a live site.</p></div></div>
-    <div class="card"><div class="ctop"></div><div class="cbody"><h3>Residential project</h3><p><b>Placeholder.</b> A full installation or smart home, with photographs.</p></div></div>
+<a name="commercial"></a>
+<section class="band">
+  <div class="wrap">
+    <p class="sh">Commercial and industrial.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ctop">Installation</div>
+        <div class="cbody">
+          <ul class="ticks">
+            <li>Distribution, power and lighting installs</li>
+            <li>Factory, warehouse and workshop</li>
+            <li>Office, retail and hospitality fit-out</li>
+            <li>Work phased around your operation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ctop">Maintenance &amp; testing</div>
+        <div class="cbody">
+          <ul class="ticks">
+            <li>Fixed wire testing and EICRs</li>
+            <li>Remedial works from someone else's report</li>
+            <li>Planned maintenance rather than call-outs</li>
+            <li>Certificates issued promptly, not chased</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ctop">Reactive</div>
+        <div class="cbody">
+          <ul class="ticks">
+            <li>Something has failed and production has stopped</li>
+            <li>Fault-finding rather than replacing and hoping</li>
+            <li>Directly employed engineers who know your site</li>
+            <li>A number that reaches a person</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="oppnote" style="text-align:center;max-width:820px;margin:20px auto 0">
-  <b>Your accreditations belong on every page, with the logos.</b> On commercial work they are often a
-  pre-qualification requirement rather than a nice-to-have &mdash; and we have left the slot blank
-  because we do not know which schemes you hold.</p>
-</div></section>
+</section>
 
-<div class="cta2"><div class="wrap">
-  <h2>You are busy. So this is about better work, not more of it.</h2>
-  <p>Twelve services, found by name, with the commercial ones asked for properly.</p>
-  <a class="call" href="tel:01492549740">Call 01492 549740</a>
-</div></div>
-
-<footer><div class="wrap">
-  <div class="fnote">
-    <b>This is a concept demonstration built by AG1 Consulting for Alun Edwards on 3 September 2026. It
-    is not a live website and is not affiliated with or published by AC Electrical (North Wales)
-    Ltd.</b> <b>The rating tile, the accreditation slot and all three project cards are blank, clearly
-    labelled placeholders &mdash; no rating, review count, accreditation or client is stated
-    anywhere.</b> <b>Every image area is an empty placeholder &mdash; no image depicts your work or any
-    property.</b> Business name, telephone number, the twelve services and the coverage area are taken
-    from your own published website and are <b>your own claims, not independently verified by us</b>.
-    <b>The commercial section &mdash; including references to certification, scheduling around operating
-    hours, planned maintenance and multi-site accounts &mdash; is an illustration of how such a page
-    could read and is NOT a statement of services, competencies, certifications or terms you offer.</b>
-    <b>Nothing here states or implies that you hold any particular accreditation, approval or
-    qualification.</b> <b>Comments on which services are growing, on how commercial clients select
-    contractors, and on what customers search for are general commercial observations rather than
-    researched findings about your business or your market.</b> Your current workload is as reported to
-    our team and has not been independently verified. <b>No price, timescale, guarantee or outcome is
-    offered anywhere, and no number of enquiries, jobs or revenue is promised or forecast.</b> The
-    enquiry form is a front-end demonstration: it sends nothing, stores nothing and contacts nobody.
+<a name="solar"></a>
+<section class="band">
+  <div class="wrap">
+    <p class="sh">Solar PV &mdash; and why an electrical contractor is the right firm to do it.</p>
+    <div class="two">
+      <div class="box">
+        <h3>What we do</h3>
+        <ul class="ticks">
+          <li>Commercial and domestic solar PV design and installation</li>
+          <li>The electrical side done by the people who do it every day</li>
+          <li>Honest answer on whether your roof and supply suit it</li>
+          <li>One firm from survey to commissioning and certification</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Why that matters</h3>
+        <ul class="ticks">
+          <li>Most solar problems are electrical problems</li>
+          <li>We are not a sales operation subcontracting the install</li>
+          <li>We will tell you if the payback does not work</li>
+          <li>The same team is still here for the maintenance</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hint">A solar buyer is earlier in the decision than an electrical buyer &mdash; they are weighing a
+    purchase, not fixing a fault. This page needs its own form, its own number and its own tracking, or you cannot
+    tell a solar enquiry from an electrical one.</div>
   </div>
-</div></footer>
+</section>
 
-<a class="stick" href="tel:01492549740">Call 01492 549740</a>
+<a name="about"></a>
+<section class="band">
+  <div class="wrap">
+    <p class="sh">Who actually turns up.</p>
+    <div class="two">
+      <div class="box">
+        <h3>The team</h3>
+        <ul class="ticks">
+          <li>Directly employed engineers plus trusted contractors</li>
+          <li>The person who quotes it is involved in delivering it</li>
+          <li>Small enough that you deal with Matthew directly</li>
+          <li>Big enough to hold a commercial programme</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>How a job runs</h3>
+        <ul class="ticks">
+          <li>You call or send the site details</li>
+          <li>We visit, survey and price it in writing</li>
+          <li>Dates agreed around your operating hours</li>
+          <li>Work done, tested, certified and handed over</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-<script>
-function q(e){e.preventDefault();
- var w=+document.getElementById('who').value,s=+document.getElementById('svc').value,
-     sc=+document.getElementById('scale').value,o=document.getElementById('out');
- if(sc>=5&&w>=5){o.className='out show o-urg';
-  o.innerHTML='<b>This is the enquiry worth dropping everything for.</b>A building or a maintenance contract is recurring, budgeted work that fills the quiet months. <b style="display:inline">On your site today it arrives looking exactly like somebody wanting a socket moved.</b>';}
- else if(s>=5){o.className='out show o-urg';
-  o.innerHTML='<b>Fire alarms and access control go to the top.</b>They are contracted, certificated and they repeat &mdash; and they are currently two bullets in a list of twelve on your homepage.';}
- else if(s>=4||w>=4){o.className='out show o-hi';
-  o.innerHTML='<b>Worth a proper look this week.</b>EV charging, EICRs and thermal surveys are all searched by name, and each deserves a page of its own rather than a bullet.';}
- else if(sc<=1){o.className='out show o-md';
-  o.innerHTML='<b>Happy to help with that.</b>Smaller jobs go in the normal list rather than the priority one &mdash; and they are often how a bigger relationship starts.';}
- else{o.className='out show o-md';
-  o.innerHTML='<b>We can quote that.</b>A full property gets a proper visit and a written price. <b style="display:inline">That is the point of asking four questions</b> &mdash; you know the scale before you ring back.';}
- o.scrollIntoView({behavior:'smooth',block:'nearest'});return false;}
-</script>
+<a name="areas"></a>
+<section class="band">
+  <div class="wrap">
+    <p class="sh">Where we work.</p>
+    <div class="areas">
+      <span>Northampton</span><span>Kettering</span><span>Wellingborough</span><span>Corby</span>
+      <span>Daventry</span><span>Rushden</span><span>Towcester</span><span>Brackley</span>
+      <span>Milton Keynes</span><span>Bedford</span><span>Rugby</span><span>Northamptonshire</span>
+    </div>
+    <div class="hint">A page for each is how a facilities manager searching for a commercial electrician plus their
+    own town finds you. None of them exists yet, and none of your four competitors has locked them up.</div>
+  </div>
+</section>
+
+<div class="cta2">
+  <div class="wrap">
+    <h2>Commercial electrical and solar, from one directly employed team.</h2>
+    <p>Call <a href="tel:07515667662">07515 667662</a> or send the site details and we will come and price it.</p>
+    <a class="btn" href="#top">Request a site visit</a>
+  </div>
+</div>
+
+<div class="fnote" style="text-align:center;padding:26px 22px;max-width:920px;margin:0 auto">
+  <b>Concept site prepared by AG1 Consulting for Matthew Cawte, 29 September 2026.</b> This is a design and structure
+  proposal, not a live website and not a finished product. <b>The phone number is taken from the booking record
+  supplied to AG1. The commercial, industrial and solar focus is drawn from AC Electrical's own existing pages,
+  including its /solar page. The team composition (two full-time staff and two contractors) and the job-size ranges
+  are as reported to AG1 and have NOT been independently verified.</b>
+  <b>&#9888; Service areas, the described services, testing and certification capabilities, EV charging and the job
+  process are DRAFTS and would each be confirmed with Matthew before anything went live. No accreditation, scheme
+  membership, qualification or certification is claimed on your behalf anywhere on this page &mdash; any that you hold
+  would be added and evidenced before publication.</b>
+  <b>&#9888; No price, payback, saving, ranking, enquiry volume or revenue outcome is promised or implied. Statements
+  about solar suitability and payback are framed as things to assess per building, not as claims.</b>
+</div>
